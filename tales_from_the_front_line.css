@@ -1,0 +1,27 @@
+.black_center .reveal .state-background {
+  background: black;
+} 
+
+.black_center .reveal h1,
+.black_center .reveal h2,
+.black_center .reveal p {
+  margin-top: 25%;
+  color: white;
+}
+
+.black_image .reveal .state-background {
+  background: black;
+} 
+
+.black_image .reveal h1,
+.black_image .reveal h2,
+.black_image .reveal p {
+  color: white;
+}
+
+.footer {
+    color: blue;
+    position: fixed; top: 110%;
+    text-align:right; width:100%;
+    font-size:80%;
+}
