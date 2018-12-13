@@ -1,4 +1,4 @@
-Tales from the Front Line: How Statistics is REALLY used in the (Tech) Industry
+Tales from the Front Line: How Statistics is REALLY used in the Industry
 ========================================================
 author: Giora Simchoni
 date: December 18th, 2018
