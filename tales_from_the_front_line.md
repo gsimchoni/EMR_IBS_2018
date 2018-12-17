@@ -47,7 +47,7 @@ What could possibly go wrong?
 - This is a real ebay experiment, from 2012 ([source](https://users.soe.ucsc.edu/~draper/Reading-2015-Day-5.html))
 - Results were analyzed by David Draper of UC Santa Cruz
 - 12M users in Treatment group (new feature) spent 8c less on average during 2 weeks, than 12M users in Control group
-- p = 0.18, lift = `mean(y.T)/mean(y.C) - 1` = -0.82%
+- p = 0.18, lift = `mean(y.T)/mean(y.C) - 1 = -0.82%`
 - Result: Feature not deployed
 
 
@@ -90,7 +90,29 @@ Histograms much?
 The `$$$` metric is problematic at best:
 - 90% of users in both groups spent 0$
 - highest obs in Control: `$161K`, in Treatment: `$91K`
-- high noise-to-signal ratio, sd()/mean() ~ 15 --> low power for tiny lifts, even with n = 24M!
+
+Power Analysis?
+========================================================
+
+```r
+power.t.test(n=12000000, delta=0.0005, sd=140)
+```
+
+```
+
+     Two-sample t test power calculation 
+
+              n = 1.2e+07
+          delta = 5e-04
+             sd = 140
+      sig.level = 0.05
+          power = 0.02551569
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+
+- effect-size = `(mean(y.C) - mean(y.T)/sd(y.C) ~ 0.0005` --> low power for tiny lifts, even with n = 24M!
 - haven't even begun talking about making dozens of tests at any given time
 
 A simple Sensitivity Analysis
@@ -187,7 +209,7 @@ And there are, of course, Project Managers and Product People
 Who volunteers to tell them?
 ========================================================
 
-![](images/ab_funnels.png)
+![](images/ab_funnels2.png)
 
 - <span style="color:red">Significantly less people sign-in after download</span>
 - About the same % start playing with bonus
@@ -200,7 +222,7 @@ What do you think the PM heared?
 ========================================================
 incremental: true
 
-![](images/ab_funnels.png)
+![](images/ab_funnels2.png)
 
 - It turns out the download file for the new platform was 70% larger than old file.
 - Install time was considerably longer.
